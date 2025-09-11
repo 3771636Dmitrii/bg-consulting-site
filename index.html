@@ -7,28 +7,34 @@
   <meta name="description" content="Consulting, Accounting und Dokumentenservices in Wien: Buchhaltung, Firmengründung, Apostille & Übersetzungen, Proof of Life, elektronische Signaturen, Aufenthalt & Einbürgerung.">
   <link rel="icon" href="favicon.ico">
   <style>
-    :root{
-      --ink:#0f1f3a;          /* Haupttext (navy) */
-      --muted:#5b6675;        /* Sekundärtext */
-      --line:#e9ecf2;         /* Trennlinien */
-      --accent:#0e6b5b;       /* Akzent (emerald) */
-      --bg:#ffffff;           /* Weiß */
-    }
+    :root{ --ink:#0f1f3a; --muted:#516077; --line:#d7dce5; --accent:#0e6b5b; --bg:#f6f8fb; --card:#ffffff; --field:#f7f9fc; }
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
     img{max-width:100%;height:auto}
     a{color:var(--accent);text-decoration:none}
     a:hover{text-decoration:underline}
-    .container{max-width:1080px;margin:0 auto;padding:0 20px}
+    .container{max-width:1240px;margin:0 auto;padding:0 24px}
     .row{display:flex;justify-content:space-between;align-items:center}
-    header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:20}
-    .nav{padding:14px 0}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand img{width:40px;height:40px;object-fit:contain}
-    nav a{margin-left:18px;font-size:14px;color:var(--muted)}
 
-    .hero{padding:72px 0 56px;border-bottom:1px solid var(--line)}
-    .hero h1{font-size:40px;line-height:1.15;margin:0 0 10px}
+    /* LIGHT, AIRY (PALE-BLUE) WIDE HEADER */
+    header{
+      position:sticky;top:0;z-index:20;
+      background:linear-gradient(180deg,#f4f8ff 0%,#eef3fb 100%);
+      border-bottom:1px solid var(--line);
+      box-shadow:0 6px 20px rgba(15,31,58,.06);
+    }
+    .nav{padding:28px 0} /* выше и шире */
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand img{width:60px;height:60px;object-fit:contain}
+    .brand-name{font-weight:800;letter-spacing:.2px;font-size:20px;color:var(--ink)}
+    nav a{margin-left:18px;font-size:14px;color:rgba(15,31,58,.8)}
+    nav a:hover{color:var(--ink)}
+    .lang-switch{display:flex;gap:6px;margin-left:12px}
+    .lang{border:1px solid rgba(15,31,58,.25);background:transparent;color:var(--ink);padding:6px 10px;border-radius:8px;font-size:12px;cursor:pointer}
+    .lang.active{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:700}
+
+    .hero{padding:88px 0 64px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#ffffff 0%,#f8f9fc 100%)}
+    .hero h1{font-size:40px;line-height:1.15;margin:0 0 10px;color:var(--ink)}
     .hero p{max-width:760px;font-size:18px;color:var(--muted);margin:0}
     .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
     .btn{display:inline-block;border:1px solid var(--accent);background:var(--accent);color:#fff;padding:11px 16px;border-radius:10px;font-weight:600}
@@ -41,68 +47,85 @@
 
     .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
     .col-6{grid-column:span 6}
+    .col-7{grid-column:span 7}
+    .col-5{grid-column:span 5}
     .col-4{grid-column:span 4}
     .col-12{grid-column:span 12}
 
-    .card{border:1px solid var(--line);border-radius:14px;padding:18px;background:#fff}
+    .card{border:1px solid var(--line);border-radius:14px;padding:18px;background:var(--card)}
     ul{margin:0;padding-left:18px}
     li{margin:6px 0}
 
-    .price{font-weight:700}
+    .price{font-weight:800;font-size:22px}
     .muted{color:var(--muted)}
     .small{font-size:13px}
 
     form label{display:block;margin:10px 0 6px;color:var(--muted);font-size:13px}
-    form input,form textarea,form select{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font-size:15px}
+    form input,form textarea,form select{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:15px;background:var(--field);transition:border-color .2s, box-shadow .2s}
     form textarea{min-height:120px}
+    form input::placeholder,form textarea::placeholder{color:#99a3b3}
+    form input:focus,form textarea:focus,form select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(14,107,91,.12);background:#fff}
+    form input:hover,form textarea:hover,form select:hover{border-color:#c4cada}
 
-    footer{padding:28px 0}
+    /* CONTACT CARD — light & airy, with optional logo */
+    .contact-card{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:14px;padding:20px;display:flex;gap:16px;align-items:flex-start;box-shadow:0 4px 16px rgba(15,31,58,.05)}
+    .contact-card img{width:56px;height:56px;object-fit:contain}
+    .contact-card .company{font-weight:800;font-size:20px;margin-bottom:2px}
+    .contact-card .lines{font-size:16px}
+    .contact-card a{color:var(--accent)}
 
-    @media (max-width:900px){
-      .col-6,.col-4{grid-column:span 12}
-      .hero h1{font-size:32px}
-    }
+    footer{padding:28px 0;background:#fff}
+    .socials{display:flex;gap:14px;align-items:center}
+    .socials a{display:inline-flex;padding:8px;border:1px solid var(--line);border-radius:10px;background:#fff}
+    .socials svg{width:20px;height:20px}
+
+    @media (max-width:900px){ .col-7,.col-5,.col-6,.col-4{grid-column:span 12} .hero h1{font-size:32px} }
   </style>
 </head>
 <body>
 <header>
   <div class="container nav row">
     <div class="brand">
-      <img src="logo.png" alt="BG">
-      <strong>Bingler & Guzik Consulting GmbH</strong>
+      <!-- ЛОГОТИП: замените файл logo.png в корне репозитория; если файл отсутствует — картинка просто скрывается -->
+      <img src="logo.png" alt="Logo" onerror="this.style.display='none'">
+      <div class="brand-name" data-i18n="brand">Bingler & Guzik Consulting GmbH</div>
     </div>
-    <nav>
-      <a href="#leistungen">Leistungen</a>
-      <a href="#pakete">Pakete & Preise</a>
-      <a href="#kontakt">Kontakt</a>
-      <a href="#faq">FAQ</a>
-    </nav>
+    <div style="display:flex;align-items:center">
+      <nav>
+        <a href="#leistungen" data-i18n="nav.services">Leistungen</a>
+        <a href="#pakete" data-i18n="nav.packages">Pakete & Preise</a>
+        <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      </nav>
+      <div class="lang-switch">
+        <button class="lang active" data-setlang="de">DE</button>
+        <button class="lang" data-setlang="en">EN</button>
+        <button class="lang" data-setlang="ru">RU</button>
+      </div>
+    </div>
   </div>
 </header>
 
 <main>
-  <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <h1>Ihr Partner für Consulting, Accounting & Dokumentenservices</h1>
-      <p>Klare Lösungen für Unternehmen und Privatpersonen in Wien: Buchhaltung & Steuern, Firmengründung, Apostille & Übersetzungen, Proof of Life, elektronische Signaturen, Aufenthalt & Einbürgerung.</p>
+      <h1 data-i18n="hero.title">Ihr Partner für Consulting, Accounting & Dokumentenservices</h1>
+      <p data-i18n="hero.subtitle">Klare Lösungen für Unternehmen und Privatpersonen in Wien: Buchhaltung & Steuern, Firmengründung, Apostille & Übersetzungen, Proof of Life, elektronische Signaturen, Aufenthalt & Einbürgerung.</p>
       <div class="cta">
-        <a class="btn" href="#kontakt">Kostenlose Erstabstimmung (15 Min)</a>
-        <a class="btn btn-outline btn-sm" href="https://wa.me/XXXXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
-        <a class="btn btn-outline btn-sm" href="https://t.me/XXXXXXXX" target="_blank" rel="noopener">Telegram</a>
+        <a class="btn" href="#kontakt" data-i18n="hero.cta1">Kostenlose Erstabstimmung (15 Min)</a>
+        <a class="btn btn-outline btn-sm" href="#kontakt" data-i18n="hero.cta2">E‑Mail senden</a>
       </div>
     </div>
   </section>
 
-  <!-- LEISTUNGEN -->
   <section id="leistungen">
     <div class="container">
-      <h2>Leistungen</h2>
-      <p class="lead">Strukturiert und nachvollziehbar – genau das, was Sie brauchen, ohne Umwege.</p>
+      <h2 data-i18n="services.title">Leistungen</h2>
+      <p class="lead" data-i18n="services.lead">Strukturiert und nachvollziehbar – genau das, was Sie brauchen, ohne Umwege.</p>
       <div class="grid">
         <div class="col-6 card">
-          <h3>Privatkunden (B2C)</h3>
-          <ul>
+          <h3 data-i18n="services.b2c.title">Privatkunden (B2C)</h3>
+          <ul id="b2c-list">
             <li><strong>Elektronische Signaturen</strong> – Auswahl & Einrichtung, Fern-/Vor‑Ort‑Ident, Schlüsseltransfer, Verlängerung</li>
             <li><strong>Proof of Life (Lebensbestätigung)</strong> – Organisation, Formulare, Übersetzungen und Beglaubigungen</li>
             <li><strong>Vollmachten</strong> – Vorlagen RU/DE/EN, notarielle Beglaubigung, Apostille/Legalisierung</li>
@@ -112,8 +135,8 @@
           </ul>
         </div>
         <div class="col-6 card">
-          <h3>Geschäftskunden (B2B)</h3>
-          <ul>
+          <h3 data-i18n="services.b2b.title">Geschäftskunden (B2B)</h3>
+          <ul id="b2b-list">
             <li><strong>Firmengründung (GmbH/FlexCo)</strong> – Notar, Firmenbuch, FinanzOnline, UID, Firmenkonto</li>
             <li><strong>Buchhaltung & Steuern</strong> – laufende Buchhaltung, Lohnverrechnung, UVA, Jahresabschluss, KöSt/ESt</li>
             <li><strong>Banking (Unternehmen)</strong> – KYC‑Paket, Kommunikation mit der Bank, Kontoeröffnung</li>
@@ -126,89 +149,66 @@
     </div>
   </section>
 
-  <!-- PAKETE & PREISE -->
   <section id="pakete">
     <div class="container">
-      <h2>Pakete & Preise</h2>
+      <h2 data-i18n="prices.title">Pakete & Preise</h2>
+      <p class="lead" data-i18n="prices.lead">Transparente Richtwerte. Endpreise richten sich nach Umfang und amtlichen Gebühren.</p>
       <div class="grid">
-        <div class="col-4 card">
-          <h3>Apostille Fast Track</h3>
-          <p class="muted">Dokumentprüfung, Einreichung, Abholung, Koordination Übersetzer/Notar</p>
-          <p class="price">ab €79/Dokument <span class="muted">+ Behörden</span></p>
-        </div>
-        <div class="col-4 card">
-          <h3>Proof of Life</h3>
-          <p class="muted">Terminorganisation, Formular, Übersetzung, Beglaubigung</p>
-          <p class="price">ab €95 <span class="muted">+ Notar/Übersetzung</span></p>
-        </div>
-        <div class="col-4 card">
-          <h3>Accounting Basic</h3>
-          <p class="muted">Mikro‑GmbH, limitierter Belegumfang, UVA, Jahresabschluss</p>
-          <p class="price">ab €149/Monat</p>
-        </div>
-        <div class="col-4 card">
-          <h3>GmbH Go‑Live</h3>
-          <p class="muted">Gründung, UID, Bank, 3 Monate Buchhaltung, Basis‑Vorlagen, e‑Sign</p>
-          <p class="price">ab €1 490 <span class="muted">+ Notar/Behörden</span></p>
-        </div>
-        <div class="col-4 card">
-          <h3>Compliance Basic</h3>
-          <p class="muted">KYC/AML‑Policy, Sanktionsklauseln, Onboarding‑Checklisten</p>
-          <p class="price">ab €590</p>
-        </div>
-        <div class="col-4 card">
-          <h3>VIP Home Visit (Wien)</h3>
-          <p class="muted">Vor‑Ort‑Service für Vollmachten, Apostille, e‑Sign Setup</p>
-          <p class="price">ab €190</p>
-        </div>
+        <div class="col-4 card"><div class="price" data-i18n="prices.apostille.title">Apostille — ab €89/Dokument</div><ul class="small muted" id="p-apo"><li>Einreichung & Abholung</li><li>Koordination Übersetzer/Notar</li></ul></div>
+        <div class="col-4 card"><div class="price" data-i18n="prices.pol.title">Proof of Life — ab €120</div><ul class="small muted" id="p-pol"><li>Termin & Formular</li><li>Übersetzung & Beglaubigung (zzgl.)</li></ul></div>
+        <div class="col-4 card"><div class="price" data-i18n="prices.acc.title">Accounting Basic — ab €199/Monat</div><ul class="small muted" id="p-acc"><li>bis 50 Belege/Monat, UVA</li><li>Jahresabschluss ab €990</li></ul></div>
+        <div class="col-4 card"><div class="price" data-i18n="prices.gmbh.title">GmbH Go‑Live — ab €1 590</div><ul class="small muted" id="p-gmbh"><li>UID, Bank, 3 Monate Buchhaltung</li><li>Basis‑Vorlagen, e‑Sign</li></ul></div>
+        <div class="col-4 card"><div class="price" data-i18n="prices.comp.title">Compliance Basic — ab €690</div><ul class="small muted" id="p-comp"><li>KYC/AML‑Policy</li><li>Sanktionsklauseln, Checklisten</li></ul></div>
+        <div class="col-4 card"><div class="price" data-i18n="prices.vip.title">VIP Home Visit (Wien) — ab €240</div><ul class="small muted" id="p-vip"><li>Vor‑Ort‑Service 1–1,5 h</li><li>Vollmachten, Apostille, e‑Sign Setup</li></ul></div>
       </div>
+      <p class="small muted" style="margin-top:12px" data-i18n="prices.note">Alle Preise verstehen sich als Richtwerte („ab“) exkl. Behörden‑/Notarkosten, beglaubigte Übersetzungen, Kurier und Auslagen. Genaue Kalkulation nach Erstgespräch.</p>
     </div>
   </section>
 
-  <!-- KONTAKT -->
   <section id="kontakt">
     <div class="container">
-      <h2>Kontakt</h2>
+      <h2 data-i18n="contact.title">Kontakt</h2>
       <div class="grid">
-        <div class="col-6 card">
+        <div class="col-7 card">
           <form action="https://formspree.io/f/XXXXXXX" method="POST">
-            <label>Name</label>
-            <input name="name" required>
-            <label>E‑Mail</label>
-            <input type="email" name="email" required>
-            <label>Telefon</label>
-            <input name="phone">
-            <label>Bevorzugte Sprache</label>
-            <select name="language">
-              <option>Deutsch</option>
-              <option>English</option>
-              <option>Русский</option>
-            </select>
-            <label>Nachricht</label>
+            <label data-i18n="form.name">Name</label>
+            <input name="name" placeholder="Ihr Name" required>
+            <label data-i18n="form.email">E‑Mail</label>
+            <input type="email" name="email" placeholder="name@domain.at" required>
+            <label data-i18n="form.phone">Telefon</label>
+            <input name="phone" placeholder="+43 …">
+            <label data-i18n="form.lang">Bevorzugte Sprache</label>
+            <select name="language" id="lang-select"><option>Deutsch</option><option>English</option><option>Русский</option></select>
+            <label data-i18n="form.msg">Nachricht</label>
             <textarea name="message" placeholder="Kurze Beschreibung Ihres Anliegens…"></textarea>
-            <div class="cta">
-              <button class="btn" type="submit">Anfrage senden</button>
-              <a class="btn btn-outline btn-sm" href="https://wa.me/XXXXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
-              <a class="btn btn-outline btn-sm" href="https://t.me/XXXXXXXX" target="_blank" rel="noopener">Telegram</a>
-            </div>
+            <div class="cta"><button class="btn" type="submit" data-i18n="form.send">Anfrage senden</button></div>
           </form>
         </div>
-        <div class="col-6 card">
-          <p><strong>Bingler & Guzik Consulting GmbH</strong><br>Wien, Österreich</p>
-          <p>Telefon: <a href="tel:+43XXXXXXXXX">+43 XXXXXXXXX</a><br>
-             E‑Mail: <a href="mailto:office@bg-consulting.at">office@bg-consulting.at</a></p>
-          <p class="small muted">Öffnungszeiten: Mo–Fr 9:00–18:00 (nach Vereinbarung)</p>
+        <div class="col-5">
+          <div class="contact-card">
+            <!-- Тот же логотип можно показать и здесь; если logo.png нет, блок просто отрисуется без картинки -->
+            <img src="logo.png" alt="Logo" onerror="this.style.display='none'">
+            <div>
+              <div class="company" data-i18n="brand">Bingler & Guzik Consulting GmbH</div>
+              <div class="lines"><span data-i18n="contact.city">Wien, Österreich</span><br><span data-i18n="contact.phoneLabel">Telefon:</span> <a href="tel:+436641028757">+43 664 102 8757</a><br><span data-i18n="contact.mailLabel">E‑Mail:</span> <a href="mailto:office@bg-consulting.at">office@bg-consulting.at</a></div>
+              <div class="socials" style="margin-top:10px">
+                <a href="#" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.04 12.34l-.24 3.52c.34 0 .49-.15.67-.33l1.6-1.53 3.31 2.43c.61.34 1.04.16 1.2-.57l2.18-10.22c.22-1.04-.38-1.45-1.05-1.2L3.9 9.2c-1 .39-.99.95-.17 1.2l3.5 1.09 8.12-5.12c.38-.23.74-.1.45.13l-6.76 5.84z" fill="#0e6b5b"/></svg></a>
+                <a href="#" aria-label="WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.52 3.48A11.94 11.94 0 0012 0C5.37 0 0 5.37 0 12c0 2.11.55 4.1 1.52 5.83L0 24l6.3-1.64A11.93 11.93 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.2-3.48-8.52zM12 21.5c-1.93 0-3.72-.56-5.24-1.52l-.38-.24-3.7.96.99-3.6-.25-.4A9.46 9.46 0 012.5 12C2.5 7.03 6.53 3 11.5 3S20.5 7.03 20.5 12 16.47 21.5 11.5 21.5z" fill="#0e6b5b"/><path d="M17.3 14.5c-.25.7-1.28 1.3-1.77 1.31-.48.02-1.12.02-1.81-.11-.41-.08-.94-.23-1.63-.5-2.86-1.19-4.72-3.96-4.86-4.14-.14-.19-1.16-1.54-1.16-2.94 0-1.4.73-2.08.98-2.35.25-.27.54-.34.72-.34.18 0 .36 0 .52.01.17.01.39-.06.61.46.25.59.85 2.06.93 2.21.08.15.13.33.03.53-.1.2-.15.33-.29.5-.14.17-.3.38-.43.51-.14.14-.29.29-.13.57.16.27.71 1.16 1.53 1.88 1.05.94 1.94 1.23 2.22 1.36.28.13.45.11.62-.06.17-.16.72-.84.91-1.12.19-.28.39-.23.65-.14.27.09 1.72.81 2.01.95.29.14.48.21.55.33.07.12.07.69-.18 1.39z" fill="#0e6b5b"/></svg></a>
+                <a href="#" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3a5 5 0 110 10 5 5 0 010-10zm0 2.2A2.8 2.8 0 1014.8 12 2.8 2.8 0 0012 9.2zm5.35-1.45a1.15 1.15 0 110 2.3 1.15 1.15 0 010-2.3z" fill="#0e6b5b"/></svg></a>
+                <a href="#" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.5 6.2a3 3 0 00-2.12-2.12C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.38.58A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.12 2.12C4.4 20.5 12 20.5 12 20.5s7.6 0 9.38-.58A3 3 0 0023.5 17.8 31 31 0 0024 12a31 31 0 00-.5-5.8zM9.75 15.5V8.5L15.5 12l-5.75 3.5z" fill="#0e6b5b"/></svg></a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ kurz -->
   <section id="faq">
     <div class="container">
-      <h2>FAQ</h2>
+      <h2 data-i18n="faq.title">FAQ</h2>
       <div class="grid">
-        <div class="col-6 card">
+        <div class="col-6 card" id="faq-left">
           <strong>Wie schnell geht eine Apostille?</strong>
           <p class="muted small">Je nach Dokument/Behörde. In Wien oft 2–5 Werktage (zzgl. Übersetzung).</p>
           <strong>Bieten Sie Vor‑Ort‑Service?</strong>
@@ -216,9 +216,9 @@
           <strong>In welchen Sprachen beraten Sie?</strong>
           <p class="muted small">Deutsch, Englisch, Russisch.</p>
         </div>
-        <div class="col-6 card">
+        <div class="col-6 card" id="faq-right">
           <strong>Was kostet die Firmengründung?</strong>
-          <p class="muted small">Ab €1 490 zuzüglich Notar/Behörden. Genaue Kalkulation nach Erstgespräch.</p>
+          <p class="muted small">Ab €1 590 zuzüglich Behörden/Notar. Genaue Kalkulation nach Erstgespräch.</p>
           <strong>Wie läuft die Buchhaltung an?</strong>
           <p class="muted small">Wir übernehmen Setup, Belegeinspielung und UVA; Reporting monatlich.</p>
         </div>
@@ -228,11 +228,27 @@
 </main>
 
 <footer>
-  <div class="container row small" style="gap:10px">
-    <div>© <span id="y"></span> Bingler & Guzik Consulting GmbH</div>
-    <div><a href="#">Impressum</a> · <a href="#">Datenschutz</a></div>
+  <div class="container row small" style="gap:10px;justify-content:space-between;align-items:center">
+    <div>© <span id="y"></span> <span data-i18n="brand">Bingler & Guzik Consulting GmbH</span></div>
+    <div class="socials">
+      <a href="#" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.04 12.34l-.24 3.52c.34 0 .49-.15.67-.33l1.6-1.53 3.31 2.43c.61.34 1.04.16 1.2-.57l2.18-10.22c.22-1.04-.38-1.45-1.05-1.2L3.9 9.2c-1 .39-.99.95-.17 1.2l3.5 1.09 8.12-5.12c.38-.23.74-.1.45.13l-6.76 5.84z" fill="#0e6b5b"/></svg></a>
+      <a href="#" aria-label="WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.52 3.48A11.94 11.94 0 0012 0C5.37 0 0 5.37 0 12c0 2.11.55 4.1 1.52 5.83L0 24l6.3-1.64A11.93 11.93 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.2-3.48-8.52zM12 21.5c-1.93 0-3.72-.56-5.24-1.52l-.38-.24-3.7.96.99-3.6-.25-.4A9.46 9.46 0 012.5 12C2.5 7.03 6.53 3 11.5 3S20.5 7.03 20.5 12 16.47 21.5 11.5 21.5z" fill="#0e6b5b"/><path d="M17.3 14.5c-.25.7-1.28 1.3-1.77 1.31-.48.02-1.12.02-1.81-.11-.41-.08-.94-.23-1.63-.5-2.86-1.19-4.72-3.96-4.86-4.14-.14-.19-1.16-1.54-1.16-2.94 0-1.4.73-2.08.98-2.35.25-.27.54-.34.72-.34.18 0 .36 0 .52.01.17.01.39-.06.61.46.25.59.85 2.06.93 2.21.08.15.13.33.03.53-.1.2-.15.33-.29.5-.14.17-.3.38-.43.51-.14.14-.29.29-.13.57.16.27.71 1.16 1.53 1.88 1.05.94 1.94 1.23 2.22 1.36.28.13.45.11.62-.06.17-.16.72-.84.91-1.12.19-.28.39-.23.65-.14.27.09 1.72.81 2.01.95.29.14.48.21.55.33.07.12.07.69-
+"/></svg></a>
+      <a href="#" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3a5 5 0 110 10 5 5 0 010-10zm0 2.2A2.8 2.8 0 1014.8 12 2.8 2.8 0 0012 9.2zm5.35-1.45a1.15 1.15 0 110 2.3 1.15 1.15 0 010-2.3z" fill="#0e6b5b"/></svg></a>
+      <a href="#" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.5 6.2a3 3 0 00-2.12-2.12C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.38.58A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.12 2.12C4.4 20.5 12 20.5 12 20.5s7.6 0 9.38-.58A3 3 0 0023.5 17.8 31 31 0 0024 12a31 31 0 00-.5-5.8zM9.75 15.5V8.5L15.5 12l-5.75 3.5z" fill="#0e6b5b"/></svg></a>
+    </div>
   </div>
 </footer>
-<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+
+<script>
+  document.getElementById('y').textContent=new Date().getFullYear();
+  const dict = { de:{brand:'Bingler & Guzik Consulting GmbH','nav.services':'Leistungen','nav.packages':'Pakete & Preise','nav.contact':'Kontakt','nav.faq':'FAQ','hero.title':'Ihr Partner für Consulting, Accounting & Dokumentenservices','hero.subtitle':'Klare Lösungen für Unternehmen und Privatpersonen in Wien: Buchhaltung & Steuern, Firmengründung, Apostille & Übersetzungen, Proof of Life, elektronische Signaturen, Aufenthalt & Einbürgerung.','hero.cta1':'Kostenlose Erstabstimmung (15 Min)','hero.cta2':'E‑Mail senden','services.title':'Leistungen','services.lead':'Strukturiert und nachvollziehbar – genau das, was Sie brauchen, ohne Umwege.','services.b2c.title':'Privatkunden (B2C)','services.b2b.title':'Geschäftskunden (B2B)','prices.title':'Pakete & Preise','prices.lead':'Transparente Richtwerte. Endpreise richten sich nach Umfang und amtlichen Gebühren.','prices.apostille.title':'Apostille — ab €89/Dokument','prices.pol.title':'Proof of Life — ab €120','prices.acc.title':'Accounting Basic — ab €199/Monat','prices.gmbh.title':'GmbH Go‑Live — ab €1 590','prices.comp.title':'Compliance Basic — ab €690','prices.vip.title':'VIP Home Visit (Wien) — ab €240','prices.note':'Alle Preise verstehen sich als Richtwerte („ab“) exkl. Behörden‑/Notarkosten, beglaubigte Übersetzungen, Kurier und Auslagen. Genaue Kalkulation nach Erstgespräch.','contact.title':'Kontakt','contact.city':'Wien, Österreich','contact.phoneLabel':'Telefon:','contact.mailLabel':'E‑Mail:','form.name':'Name','form.email':'E‑Mail','form.phone':'Telefon','form.lang':'Bevorzugte Sprache','form.msg':'Nachricht','form.send':'Anfrage senden'},
+    en:{brand:'Bingler & Guzik Consulting GmbH','nav.services':'Services','nav.packages':'Packages & Pricing','nav.contact':'Contact','nav.faq':'FAQ','hero.title':'Your partner for consulting, accounting & document services','hero.subtitle':'Clear solutions for businesses and individuals in Vienna: accounting & taxes, company formation, apostille & translations, proof of life, electronic signatures, residency & citizenship.','hero.cta1':'Free 15‑min intro call','hero.cta2':'Send e‑mail','services.title':'Services','services.lead':'Structured and to the point — exactly what you need, without detours.','services.b2c.title':'Private clients (B2C)','services.b2b.title':'Business (B2B)','prices.title':'Packages & Pricing','prices.lead':'Transparent guide prices. Final quotes depend on scope and official fees.','prices.apostille.title':'Apostille — from €89/document','prices.pol.title':'Proof of Life — from €120','prices.acc.title':'Accounting Basic — from €199/month','prices.gmbh.title':'GmbH Go‑Live — from €1,590','prices.comp.title':'Compliance Basic — from €690','prices.vip.title':'VIP Home Visit (Vienna) — from €240','prices.note':'All prices are indicative (“from”) and exclude official/notary fees, sworn translations, courier and disbursements. Final quote after intro call.','contact.title':'Contact','contact.city':'Vienna, Austria','contact.phoneLabel':'Phone:','contact.mailLabel':'E‑mail:','form.name':'Name','form.email':'E‑mail','form.phone':'Phone','form.lang':'Preferred language','form.msg':'Message','form.send':'Send request'},
+    ru:{brand:'Bingler & Guzik Consulting GmbH','nav.services':'Услуги','nav.packages':'Пакеты и цены','nav.contact':'Контакты','nav.faq':'Вопросы и ответы','hero.title':'Ваш партнёр в консалтинге, бухгалтерии и документ‑сервисах','hero.subtitle':'Чёткие решения для компаний и частных лиц в Вене: бухгалтерия и налоги, регистрация компаний, апостиль и переводы, справка «жив», электронные подписи, ВНЖ и гражданство.','hero.cta1':'Бесплатная вводная 15 минут','hero.cta2':'Написать e‑mail','services.title':'Услуги','services.lead':'Структурировано и по делу — без лишних шагов.','services.b2c.title':'Частные лица (B2C)','services.b2b.title':'Бизнес (B2B)','prices.title':'Пакеты и цены','prices.lead':'Прозрачные ориентиры. Итоговая стоимость зависит от объёма и госпошлин.','prices.apostille.title':'Апостиль — от €89/документ','prices.pol.title':'Справка «жив» — от €120','prices.acc.title':'Бухгалтерия Basic — от €199/мес','prices.gmbh.title':'GmbH Go‑Live — от €1 590','prices.comp.title':'Compliance Basic — от €690','prices.vip.title':'VIP Home Visit (Вена) — от €240','prices.note':'Все цены — ориентировочные («от») и не включают госпошлины/нотариуса, присяжные переводы, курьера и прочие расходы. Точный расчёт — после консультации.','contact.title':'Контакты','contact.city':'Вена, Австрия','contact.phoneLabel':'Телефон:','contact.mailLabel':'E‑mail:','form.name':'Имя','form.email':'E‑mail','form.phone':'Телефон','form.lang':'Предпочитаемый язык','form.msg':'Сообщение','form.send':'Отправить запрос'} };
+  const lists = { de:{ b2c:`<li><strong>Elektronische Signaturen</strong> – Auswahl & Einrichtung, Fern-/Vor‑Ort‑Ident, Schlüsseltransfer, Verlängerung</li><li><strong>Proof of Life (Lebensbestätigung)</strong> – Organisation, Formulare, Übersetzungen und Beglaubigungen</li><li><strong>Vollmachten</strong> – Vorlagen RU/DE/EN, notarielle Beglaubigung, Apostille/Legalisierung</li><li><strong>Apostille & Legalisierung</strong> – Behörde, Einreichung, Abholung, beeidigte Übersetzungen</li><li><strong>Aufenthalt & Alltagsfragen</strong> – Beratung zu Aufenthaltstiteln, Terminslots, Dokumentenlisten</li><li><strong>Banking (Privat)</strong> – KYC‑Unterlagen, Terminbegleitung, Dolmetschen</li>`, b2b:`<li><strong>Firmengründung (GmbH/FlexCo)</strong> – Notar, Firmenbuch, FinanzOnline, UID, Firmenkonto</li><li><strong>Buchhaltung & Steuern</strong> – laufende Buchhaltung, Lohnverrechnung, UVA, Jahresabschluss, KöSt/ESt</li><li><strong>Banking (Unternehmen)</strong> – KYC‑Paket, Kommunikation mit der Bank, Kontoeröffnung</li><li><strong>Verträge & Compliance</strong> – Muster RU/DE/EN, Sanktions-/Exportklauseln, KYC/AML‑Policy</li><li><strong>Elektronische Signaturen (Business)</strong> – Signaturen für Geschäftsführer/Team, Signaturprozesse</li><li><strong>HR & Lokalisierung</strong> – Mitarbeiteraufnahme, Standarddokumente, Versicherungen, Arbeitsschutz</li>`, p_apo:`<li>Einreichung & Abholung</li><li>Koordination Übersetzer/Notar</li>`, p_pol:`<li>Termin & Formular</li><li>Übersetzung & Beglaubigung (zzgl.)</li>`, p_acc:`<li>bis 50 Belege/Monat, UVA</li><li>Jahresabschluss ab €990</li>`, p_gmbh:`<li>UID, Bank, 3 Monate Buchhaltung</li><li>Basis‑Vorlagen, e‑Sign</li>`, p_comp:`<li>KYC/AML‑Policy</li><li>Sanktionsklauseln, Checklisten</li>`, p_vip:`<li>Vor‑Ort‑Service 1–1,5 h</li><li>Vollmachten, Apostille, e‑Sign Setup</li>` }, en:{ b2c:`<li><strong>Electronic signatures</strong> – selection & setup, remote/on‑site identification, key transfer, renewal</li><li><strong>Proof of life</strong> – appointment, forms, translations and certifications</li><li><strong>Powers of attorney</strong> – templates RU/DE/EN, notarial certification, apostille/legalisation</li><li><strong>Apostille & legalisation</strong> – authority, filing, pickup, sworn translations</li><li><strong>Residency & everyday matters</strong> – residence titles, appointments, document lists</li><li><strong>Banking (personal)</strong> – KYC documents, appointment escort, interpreting</li>`, b2b:`<li><strong>Company formation (GmbH/FlexCo)</strong> – notary, companies register, FinanzOnline, VAT ID, business account</li><li><strong>Accounting & taxes</strong> – bookkeeping, payroll, VAT returns, annual accounts, corporate/individual tax</li><li><strong>Banking (business)</strong> – KYC package, bank communication, account opening</li><li><strong>Contracts & compliance</strong> – templates RU/DE/EN, sanctions/export clauses, KYC/AML policy</li><li><strong>Electronic signatures (business)</strong> – signatures for directors/team, signing workflows</li><li><strong>HR & localisation</strong> – onboarding, standard documents, insurance, H&S</li>`, p_apo:`<li>Filing & pickup</li><li>Translator/notary coordination</li>`, p_pol:`<li>Appointment & form</li><li>Translation & certification (add‑on)</li>`, p_acc:`<li>up to 50 vouchers/month, VAT return</li><li>Annual accounts from €990</li>`, p_gmbh:`<li>VAT ID, bank, 3 months accounting</li><li>Base templates, e‑sign</li>`, p_comp:`<li>KYC/AML policy</li><li>Sanctions clauses, checklists</li>`, p_vip:`<li>On‑site 1–1.5 h</li><li>POA, apostille, e‑sign setup</li>` }, ru:{ b2c:`<li><strong>Электронные подписи</strong> — подбор и настройка, удалённая/очная идентификация, перенос ключей, продление</li><li><strong>Справка «жив» (Proof of Life)</strong> — запись, формы, переводы и заверения</li><li><strong>Доверенности</strong> — шаблоны RU/DE/EN, нотариальное заверение, апостиль/легализация</li><li><strong>Апостиль и легализация</strong> — орган, подача, получение, присяжные переводы</li><li><strong>ВНЖ и бытовые вопросы</strong> — типы ВНЖ, Termine, списки документов</li><li><strong>Банкинг (частные лица)</strong> — KYC‑пакет, сопровождение на встрече, перевод</li>`, b2b:`<li><strong>Регистрация компаний (GmbH/FlexCo)</strong> — нотариус, Firmenbuch, FinanzOnline, UID, счёт</li><li><strong>Бухгалтерия и налоги</strong> — учёт, зарплата, НДС‑отчёты, годовая отчётность, Körperschaftsteuer/ESt</li><li><strong>Банкинг (юрлица)</strong> — KYC‑пакет, коммуникация с банком, открытие счёта</li><li><strong>Договоры и комплаенс</strong> — шаблоны RU/DE/EN, санкционные/экспортные оговорки, KYC/AML‑политика</li><li><strong>Электронные подписи (бизнес)</strong> — подписи директору и команде, процессы подписания</li><li><strong>HR и локализация</strong> — приём сотрудников, стандарты, страхование, ОТ</li>`, p_apo:`<li>Подача и получение</li><li>Координация переводчика/нотариуса</li>`, p_pol:`<li>Запись и форма</li><li>Перевод и заверение (доп.)</li>`, p_acc:`<li>до 50 документов/мес, НДС</li><li>Годовой отчёт от €990</li>`, p_gmbh:`<li>UID, банк, 3 мес. бухгалтерии</li><li>Базовые шаблоны, e‑sign</li>`, p_comp:`<li>Политика KYC/AML</li><li>Санкционные оговорки, чек‑листы</li>`, p_vip:`<li>Выезд 1–1,5 ч</li><li>Доверенности, апостиль, e‑sign‑настройка</li>` } };
+  function applyLang(lang){ document.documentElement.lang = lang; document.querySelectorAll('[data-i18n]').forEach(el=>{ const key = el.getAttribute('data-i18n'); if(dict[lang] && dict[lang][key]) el.textContent = dict[lang][key]; }); const L = lists[lang]; if(L){ const map = { '#b2c-list':'b2c','#b2b-list':'b2b','#p-apo':'p_apo','#p-pol':'p_pol','#p-acc':'p_acc','#p-gmbh':'p_gmbh','#p-comp':'p_comp','#p-vip':'p_vip' }; Object.entries(map).forEach(([sel,key])=>{ const node=document.querySelector(sel); if(node && L[key]) node.innerHTML=L[key]; }); } const langSel=document.getElementById('lang-select'); if(langSel){ const opts={de:'Deutsch',en:'English',ru:'Русский'}; langSel.innerHTML=`<option>${opts.de}</option><option>${opts.en}</option><option>${opts.ru}</option>`; } document.querySelectorAll('.lang').forEach(b=>b.classList.toggle('active', b.dataset.setlang===lang)); }
+  applyLang('de');
+  document.querySelectorAll('[data-setlang]').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.setlang)));
+</script>
 </body>
 </html>
