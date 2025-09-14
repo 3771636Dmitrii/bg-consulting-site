@@ -103,17 +103,13 @@
     .socials svg{width:20px;height:20px}
 
     @media (max-width:900px){ .col-7,.col-5,.col-6,.col-4{grid-column:span 12} .hero h1{font-size:32px} }
-    /* Legal sections */
-.legal{margin:40px auto; max-width:900px; padding:24px}
-.legal h2{margin:0 0 12px}
-.legal p{margin:10px 0}
+    /* Legal sections (compact + 2 cols on desktop) */
 footer a{color:var(--muted); text-decoration:underline}
-    /* Compact legal */
-.legal{max-width:720px;padding:16px;font-size:14px}
-.legal h2{font-size:20px;margin:0 0 8px}
-.legal p{margin:8px 0}
-.legal-wrap{display:grid;gap:16px}
-@media(min-width:992px){ .legal-wrap{grid-template-columns:1fr 1fr} }
+.legal{margin:24px auto; max-width:640px; padding:14px; font-size:13px; line-height:1.45}
+.legal h2{font-size:18px; margin:0 0 6px}
+.legal p{margin:6px 0}
+.legal-wrap{display:grid; gap:14px}
+@media (min-width:992px){ .legal-wrap{grid-template-columns:1fr 1fr} }
 
   </style>
 </head>
@@ -281,6 +277,7 @@ footer a{color:var(--muted); text-decoration:underline}
   <p><strong>Ihre Rechte:</strong> Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch, Datenübertragbarkeit (Art. 15–22 DSGVO) sowie Beschwerde bei der <a href="https://www.dsb.gv.at/" target="_blank" rel="noopener">Datenschutzbehörde</a>.</p>
 </section>
 <!-- /LEGAL SECTIONS -->
+</div>
 </main>
 
 <footer>
