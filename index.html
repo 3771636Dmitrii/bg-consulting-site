@@ -103,6 +103,12 @@
     .socials svg{width:20px;height:20px}
 
     @media (max-width:900px){ .col-7,.col-5,.col-6,.col-4{grid-column:span 12} .hero h1{font-size:32px} }
+    /* Legal sections */
+.legal{margin:40px auto; max-width:900px; padding:24px}
+.legal h2{margin:0 0 12px}
+.legal p{margin:10px 0}
+footer a{color:var(--muted); text-decoration:underline}
+
   </style>
 </head>
 <body>
@@ -249,18 +255,32 @@
       </div>
     </div>
   </section>
+  <!-- LEGAL SECTIONS -->
+<section id="impressum" class="legal card">
+  <h2>Impressum</h2>
+  <p><strong>Anbieter:</strong> Bingler &amp; Guzik Consulting GmbH <em>in Gründung (i.&nbsp;Gr.)</em></p>
+  <p><strong>Sitz:</strong> Wien, Österreich</p>
+  <p><strong>Kontakt:</strong> <a href="tel:+436641028757">+43 664 102 8757</a> · <a href="mailto:office@bg-consulting.at">office@bg-consulting.at</a></p>
+  <p><strong>Unternehmensgegenstand:</strong> Unternehmensberatung; Buchhaltungs- &amp; Steuerservices über befugte Partner.</p>
+  <p><strong>Hinweis:</strong> Diese Website dient der Vorab-Information. Inhalte stellen keine Rechts- oder Steuerberatung dar. Angaben zu Firmenbuch-Nr., UID und Geschäftsführung werden nach Eintragung ergänzt.</p>
+</section>
+
+<section id="datenschutz" class="legal card">
+  <h2>Datenschutzerklärung</h2>
+  <p><strong>Verantwortlicher:</strong> Bingler &amp; Guzik Consulting GmbH i.&nbsp;Gr., Wien, Österreich, <a href="mailto:office@bg-consulting.at">office@bg-consulting.at</a></p>
+  <p><strong>Hosting:</strong> Auslieferung über GitHub Pages (Microsoft). Technische Protokolldaten (IP-Adresse, Datum/Uhrzeit, User-Agent, Referrer) werden verarbeitet. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse: Bereitstellung der Website). Eine Übermittlung in Drittländer kann auf Basis von Standardvertragsklauseln (Art. 46 DSGVO) erfolgen.</p>
+  <p><strong>Kontaktformular:</strong> Verarbeitung der angegebenen Daten (Name, E-Mail, Telefon, Nachricht) zur Bearbeitung Ihrer Anfrage. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen). Speicherfrist: bis Abschluss der Bearbeitung; gesetzliche Aufbewahrung bleibt unberührt. Empfänger: E-Mail-Provider (wird nachgereicht).</p>
+  <p><strong>Cookies/Analyse:</strong> Derzeit nur technisch erforderliche Funktionen; kein Tracking. Bei Aktivierung von Analyse-Tools erscheint ein Einwilligungs-Banner (Opt-in).</p>
+  <p><strong>Ihre Rechte:</strong> Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch, Datenübertragbarkeit (Art. 15–22 DSGVO) sowie Beschwerde bei der <a href="https://www.dsb.gv.at/" target="_blank" rel="noopener">Datenschutzbehörde</a>.</p>
+</section>
+<!-- /LEGAL SECTIONS -->
 </main>
 
 <footer>
-  <div class="container row small" style="gap:10px;justify-content:space-between;align-items:center">
-    <div>© <span id="y"></span> <span data-i18n="brand">Bingler & Guzik Consulting GmbH</span></div>
-    <div class="socials">
-      <a href="#" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.04 12.34l-.24 3.52c.34 0 .49-.15.67-.33l1.6-1.53 3.31 2.43c.61.34 1.04.16 1.2-.57l2.18-10.22c.22-1.04-.38-1.45-1.05-1.2L3.9 9.2c-1 .39-.99.95-.17 1.2l3.5 1.09 8.12-5.12c.38-.23.74-.1.45.13l-6.76 5.84z" fill="#0e6b5b"/></svg></a>
-      <a href="#" aria-label="WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.52 3.48A11.94 11.94 0 0012 0C5.37 0 0 5.37 0 12c0 2.11.55 4.1 1.52 5.83L0 24l6.3-1.64A11.93 11.93 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.2-3.48-8.52zM12 21.5c-1.93 0-3.72-.56-5.24-1.52l-.38-.24-3.7.96.99-3.6-.25-.4A9.46 9.46 0 012.5 12C2.5 7.03 6.53 3 11.5 3S20.5 7.03 20.5 12 16.47 21.5 11.5 21.5z" fill="#0e6b5b"/><path d="M17.3 14.5c-.25.7-1.28 1.3-1.77 1.31-.48.02-1.12.02-1.81-.11-.41-.08-.94-.23-1.63-.5-2.86-1.19-4.72-3.96-4.86-4.14-.14-.19-1.16-1.54-1.16-2.94 0-1.4.73-2.08.98-2.35.25-.27.54-.34.72-.34.18 0 .36 0 .52.01.17.01.39-.06.61.46.25.59.85 2.06.93 2.21.08.15.13.33.03.53-.1.2-.15.33-.29.5-.14.17-.3.38-.43.51-.14.14-.29.29-.13.57.16.27.71 1.16 1.53 1.88 1.05.94 1.94 1.23 2.22 1.36.28.13.45.11.62-.06.17-.16.72-.84.91-1.12.19-.28.39-.23.65-.14.27.09 1.72.81 2.01.95.29.14.48.21.55.33.07.12.07.69-
-"/></svg></a>
-      <a href="#" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3a5 5 0 110 10 5 5 0 010-10zm0 2.2A2.8 2.8 0 1014.8 12 2.8 2.8 0 0012 9.2zm5.35-1.45a1.15 1.15 0 110 2.3 1.15 1.15 0 010-2.3z" fill="#0e6b5b"/></svg></a>
-      <a href="#" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.5 6.2a3 3 0 00-2.12-2.12C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.38.58A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.12 2.12C4.4 20.5 12 20.5 12 20.5s7.6 0 9.38-.58A3 3 0 0023.5 17.8 31 31 0 0024 12a31 31 0 00-.5-5.8zM9.75 15.5V8.5L15.5 12l-5.75 3.5z" fill="#0e6b5b"/></svg></a>
-    </div>
+  <div class="row" style="justify-content:center; gap:18px; font-size:14px">
+    <a href="#impressum">Impressum</a>
+    <span>•</span>
+    <a href="#datenschutz">Datenschutzerklärung</a>
   </div>
 </footer>
 
