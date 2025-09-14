@@ -112,6 +112,8 @@ footer a{color:var(--muted); text-decoration:underline}
 .legal{max-width:720px;padding:16px;font-size:14px}
 .legal h2{font-size:20px;margin:0 0 8px}
 .legal p{margin:8px 0}
+.legal-wrap{display:grid;gap:16px}
+@media(min-width:992px){ .legal-wrap{grid-template-columns:1fr 1fr} }
 
   </style>
 </head>
@@ -259,6 +261,7 @@ footer a{color:var(--muted); text-decoration:underline}
       </div>
     </div>
   </section>
+  <div class="legal-wrap container">
   <!-- LEGAL SECTIONS -->
 <section id="impressum" class="legal card">
   <h2>Impressum</h2>
