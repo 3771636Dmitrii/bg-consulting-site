@@ -202,7 +202,10 @@ footer a{color:var(--muted); text-decoration:underline}
       <h2 data-i18n="contact.title">Kontakt</h2>
       <div class="grid">
         <div class="col-7 card">
-          <form action="https://formspree.io/f/XXXXXXX" method="POST">
+          <form action="https://formspree.io/f/mjkedbjw" method="POST">
+            <input type="hidden" name="_subject" value="Neue Anfrage von der Website">
+<input type="hidden" name="_language" value="de">
+<input type="text" name="_gotcha" style="display:none"> <!-- анти-бот -->
             <label data-i18n="form.name">Name</label>
             <input name="name" placeholder="Ihr Name" required>
             <label data-i18n="form.email">E‑Mail</label>
@@ -214,6 +217,9 @@ footer a{color:var(--muted); text-decoration:underline}
             <label data-i18n="form.msg">Nachricht</label>
             <textarea name="message" placeholder="Kurze Beschreibung Ihres Anliegens…"></textarea>
             <div class="cta"><button class="btn" type="submit" data-i18n="form.send">Anfrage senden</button></div>
+            <p id="form-status" class="small muted" style="display:none;margin-top:8px">
+  Danke! Ihre Anfrage wurde gesendet.
+</p>
           </form>
         </div>
         <div class="col-5">
@@ -289,7 +295,7 @@ footer a{color:var(--muted); text-decoration:underline}
 </footer>
 
 <script>
-  document.getElementById('y').textContent=new Date().getFullYear();
+  (function(){const y=document.getElementById('y'); if(y) y.textContent=new Date().getFullYear();})();
   const dict = { de:{brand:'Bingler & Guzik Consulting GmbH','nav.services':'Leistungen','nav.packages':'Pakete & Preise','nav.contact':'Kontakt','nav.faq':'FAQ','hero.title':'Ihr Partner für Consulting, Accounting & Dokumentenservices','hero.subtitle':'Klare Lösungen für Unternehmen und Privatpersonen in Wien: Buchhaltung & Steuern, Firmengründung, Apostille & Übersetzungen, Proof of Life, elektronische Signaturen, Aufenthalt & Einbürgerung.','hero.cta1':'Kostenlose Erstabstimmung (15 Min)','hero.cta2':'E‑Mail senden','services.title':'Leistungen','services.lead':'Strukturiert und nachvollziehbar – genau das, was Sie brauchen, ohne Umwege.','services.b2c.title':'Privatkunden (B2C)','services.b2b.title':'Geschäftskunden (B2B)','prices.title':'Pakete & Preise','prices.lead':'Transparente Richtwerte. Endpreise richten sich nach Umfang und amtlichen Gebühren.','prices.apostille.title':'Apostille — ab €89/Dokument','prices.pol.title':'Proof of Life — ab €120','prices.acc.title':'Accounting Basic — ab €199/Monat','prices.gmbh.title':'GmbH Go‑Live — ab €1 590','prices.comp.title':'Compliance Basic — ab €690','prices.vip.title':'VIP Home Visit (Wien) — ab €240','prices.note':'Alle Preise verstehen sich als Richtwerte („ab“) exkl. Behörden‑/Notarkosten, beglaubigte Übersetzungen, Kurier und Auslagen. Genaue Kalkulation nach Erstgespräch.','contact.title':'Kontakt','contact.city':'Wien, Österreich','contact.phoneLabel':'Telefon:','contact.mailLabel':'E‑Mail:','form.name':'Name','form.email':'E‑Mail','form.phone':'Telefon','form.lang':'Bevorzugte Sprache','form.msg':'Nachricht','form.send':'Anfrage senden'},
     en:{brand:'Bingler & Guzik Consulting GmbH','nav.services':'Services','nav.packages':'Packages & Pricing','nav.contact':'Contact','nav.faq':'FAQ','hero.title':'Your partner for consulting, accounting & document services','hero.subtitle':'Clear solutions for businesses and individuals in Vienna: accounting & taxes, company formation, apostille & translations, proof of life, electronic signatures, residency & citizenship.','hero.cta1':'Free 15‑min intro call','hero.cta2':'Send e‑mail','services.title':'Services','services.lead':'Structured and to the point — exactly what you need, without detours.','services.b2c.title':'Private clients (B2C)','services.b2b.title':'Business (B2B)','prices.title':'Packages & Pricing','prices.lead':'Transparent guide prices. Final quotes depend on scope and official fees.','prices.apostille.title':'Apostille — from €89/document','prices.pol.title':'Proof of Life — from €120','prices.acc.title':'Accounting Basic — from €199/month','prices.gmbh.title':'GmbH Go‑Live — from €1,590','prices.comp.title':'Compliance Basic — from €690','prices.vip.title':'VIP Home Visit (Vienna) — from €240','prices.note':'All prices are indicative (“from”) and exclude official/notary fees, sworn translations, courier and disbursements. Final quote after intro call.','contact.title':'Contact','contact.city':'Vienna, Austria','contact.phoneLabel':'Phone:','contact.mailLabel':'E‑mail:','form.name':'Name','form.email':'E‑mail','form.phone':'Phone','form.lang':'Preferred language','form.msg':'Message','form.send':'Send request'},
     ru:{brand:'Bingler & Guzik Consulting GmbH','nav.services':'Услуги','nav.packages':'Пакеты и цены','nav.contact':'Контакты','nav.faq':'Вопросы и ответы','hero.title':'Ваш партнёр в консалтинге, бухгалтерии и документ‑сервисах','hero.subtitle':'Чёткие решения для компаний и частных лиц в Вене: бухгалтерия и налоги, регистрация компаний, апостиль и переводы, справка «жив», электронные подписи, ВНЖ и гражданство.','hero.cta1':'Бесплатная вводная 15 минут','hero.cta2':'Написать e‑mail','services.title':'Услуги','services.lead':'Структурировано и по делу — без лишних шагов.','services.b2c.title':'Частные лица (B2C)','services.b2b.title':'Бизнес (B2B)','prices.title':'Пакеты и цены','prices.lead':'Прозрачные ориентиры. Итоговая стоимость зависит от объёма и госпошлин.','prices.apostille.title':'Апостиль — от €89/документ','prices.pol.title':'Справка «жив» — от €120','prices.acc.title':'Бухгалтерия Basic — от €199/мес','prices.gmbh.title':'GmbH Go‑Live — от €1 590','prices.comp.title':'Compliance Basic — от €690','prices.vip.title':'VIP Home Visit (Вена) — от €240','prices.note':'Все цены — ориентировочные («от») и не включают госпошлины/нотариуса, присяжные переводы, курьера и прочие расходы. Точный расчёт — после консультации.','contact.title':'Контакты','contact.city':'Вена, Австрия','contact.phoneLabel':'Телефон:','contact.mailLabel':'E‑mail:','form.name':'Имя','form.email':'E‑mail','form.phone':'Телефон','form.lang':'Предпочитаемый язык','form.msg':'Сообщение','form.send':'Отправить запрос'} };
@@ -306,5 +312,30 @@ footer a{color:var(--muted); text-decoration:underline}
     });
   }
 </script>
+  <script>
+const form = document.querySelector('form[action^="https://formspree.io/f/"]');
+if(form){
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const data = new FormData(form);
+    try{
+      const r = await fetch(form.action, {
+        method:'POST',
+        body:data,
+        headers:{'Accept':'application/json'}
+      });
+      if(r.ok){
+        document.getElementById('form-status').style.display='block';
+        form.reset();
+      }else{
+        alert('Fehler beim Senden. Bitte versuchen Sie es später erneut.');
+      }
+    }catch(e){
+      alert('Netzwerkfehler. Bitte versuchen Sie es später erneut.');
+    }
+  });
+}
+</script>
+
 </body>
 </html>
